@@ -1,7 +1,12 @@
 #pragma once
 
+template <class T> unsigned fibonacci(T n){
+  return n == 0 ? 0 : n == 1 ? 1 : fibonacci(n-1) + fibonacci(n-2);
+}
+
+// backwards compatibility
 template <class T> unsigned fibonnacci(T n){
-  return n == 0 ? 0 : n == 1 ? 1 : fibonnacci(n-1) + fibonnacci(n-2);
+  return fibonacci(n);
 }
 
 template <class T> T fastFibonacci(T i) {
