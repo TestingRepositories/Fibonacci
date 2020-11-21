@@ -1,16 +1,15 @@
-cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.14)
 
-project(Fibonacci
-  LANGUAGES CXX
-)
+project(Fibonacci LANGUAGES NONE)
+
+set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 add_library(fibonacci INTERFACE)
 target_include_directories(fibonacci INTERFACE include)
 
-include(cmake/CPM.cmake)
+include(GetCPM)
 
-CPMAddPackage(
-  NAME Format.cmake
-  GITHUB_REPOSITORY TheLartians/Format.cmake
-  VERSION 1.0
-)
+CPMAddPackage(NAME Format.cmake
+              GITHUB_REPOSITORY TheLartians/Format.cmake
+              VERSION 1.0
+             )
